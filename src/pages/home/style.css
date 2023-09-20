@@ -37,6 +37,7 @@ figure > img {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 10px;
 }
 
 figcaption {
@@ -47,6 +48,6 @@ figcaption {
   color: gold;
   text-transform: uppercase;
   margin-bottom: 10px;
-  background-color: black;
+  background-color: #000;
   width: min-content;
 }
