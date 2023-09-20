@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./style.css";
 
 const Navigation = () => {
@@ -16,8 +16,12 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <div className="navigation__left">
-        <div className="navigation__left-symbol"></div>
-        <span className="navigation-logo">sf.game</span>
+        <Link to="/home" className="link">
+          <div className="navigation__left-symbol"></div>
+        </Link>
+        <Link to="/home" className="link">
+          <span className="navigation-logo">sf.game</span>
+        </Link>
       </div>
       <div className="navigation__right">
         <form className="navigation__right-form" onSubmit={handleSearch}>
