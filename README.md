@@ -2,7 +2,7 @@ HNG_STAGE_TWO
 
 ## Inroduction
 
-This application displays static images from an array list. It uses firbase for an authentication and "dnd kit" package for drag and drop.
+This application displays static images from an array list. It uses firebase for an authentication and "dnd kit" package for drag and drop.
 
 This guide will show you how you can run the application locally on your device.
 
