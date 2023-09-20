@@ -11,6 +11,7 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import "./style.css";
 
+// SortableItem Component
 const SortableItem = ({ item }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: item.tag });
@@ -35,12 +36,14 @@ const SortableItem = ({ item }) => {
   );
 };
 
+// Home Component
 const Home = () => {
   const [items, setItems] = useState(data);
   const [searchItem, setSearchItem] = useState("");
 
   const location = useLocation();
 
+  // Search items implementation
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const searchQuery = params.get("q");
@@ -51,6 +54,7 @@ const Home = () => {
     item.tag.toLowerCase().includes(searchItem.toLowerCase())
   );
 
+  // onDragEnd handler
   const onDragEnd = (event) => {
     const { active, over } = event;
     if (active.id === over.id) {

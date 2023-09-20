@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/sidebar";
 import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 import "./style.css";
@@ -10,9 +9,6 @@ const Layout = () => {
       <div className="layout__nav">
         <Navigation />
       </div>
-      {/* <div className="layout__sidebar">
-        <Sidebar />
-      </div> */}
       <div className="layout__content">
         <Outlet />
       </div>
