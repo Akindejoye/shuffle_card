@@ -1,0 +1,38 @@
+input {
+  width: 100%;
+  height: 51px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #000;
+  padding: 0px 12px 0px 12px;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid rgba(76, 78, 100, 0.22);
+  border-radius: 8px;
+}
+
+input:active,
+input:focus,
+input:hover {
+  border: 1px solid #4c4e6488;
+}
+
+input::placeholder {
+  color: rgba(76, 78, 100, 0.38);
+}
+
+.input-errorMessage {
+  display: block;
+  padding-top: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: red;
+  display: none;
+}
+
+input:invalid[focused="true"] ~ .input-errorMessage {
+  display: block;
+}

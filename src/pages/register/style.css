@@ -1,0 +1,80 @@
+.register {
+  max-width: 1728px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  height: 604px;
+  padding: 48px 28px 36px 28px;
+  border: 1px solid var(--gray-400);
+  border-radius: 10px;
+}
+
+.register_box > h1 {
+  font-size: 18px;
+  line-height: 23px;
+  margin-top: 31.33px;
+  color: var(--black);
+}
+
+.register_box > span {
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18.4px;
+  color: var(--gray-100);
+  margin-bottom: 24px;
+}
+
+.regForm {
+  width: 100%;
+}
+
+.regForm > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 188px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.regForm > div > img {
+  position: absolute;
+  top: 138px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.account {
+  display: flex;
+  margin-top: 42px;
+}
+
+.account > p {
+  font-family: "Work Sans", sans-serif;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18.4px;
+  color: var(--gray-100);
+}
+
+.account > button {
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18.4px;
+  color: var(--secondary);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}

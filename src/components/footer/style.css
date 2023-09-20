@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background-color: #1a1c20;
+}
+
+.footer__left-symbol {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: #3bc117;
+  clip-path: polygon(
+    20% 0%,
+    80% 0%,
+    100% 20%,
+    100% 80%,
+    80% 100%,
+    20% 100%,
+    0% 80%,
+    0% 20%
+  );
+  cursor: pointer;
+}
+
+.footer-logo {
+  display: block;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 33px;
+  cursor: pointer;
+}

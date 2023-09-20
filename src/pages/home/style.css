@@ -1,0 +1,47 @@
+.home {
+  min-height: 100vh;
+  background: #1e2024;
+  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 20px;
+}
+
+h1 {
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.home__cardbox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 270px));
+  gap: 30px;
+  padding-bottom: 70px;
+  margin-bottom: 50px;
+}
+
+figure {
+  object-fit: cover;
+  height: 170px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+figure:hover {
+  transform: scale(1.05);
+}
+
+figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+figcaption {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+  color: gold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
