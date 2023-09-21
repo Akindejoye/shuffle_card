@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { data } from "../../data";
-import { closestCenter, DndContext } from "@dnd-kit/core";
+import { closestCenter, DndContext, DragOverlay } from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
@@ -13,24 +13,24 @@ import "./style.css";
 
 // SortableItem Component
 const SortableItem = ({ item }) => {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: item.tag });
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: item.tag });
 
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
-  };
-
-  const dragPreviewStyle = {
-    ...style,
-    zIndex: 1000,
+    zIndex: isDragging ? 1000 : "auto",
   };
 
   return (
     <figure ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <div style={dragPreviewStyle}>
-        <figcaption>{item.tag}</figcaption>
-      </div>
+      <figcaption>{item.tag}</figcaption>
       <img src={item.imgUrl} alt={item.tag} />
     </figure>
   );
@@ -71,7 +71,11 @@ const Home = () => {
     <div className="home">
       <h1>Legend's Card</h1>
       <div className="home__cardbox">
-        <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
+        <DndContext
+          collisionDetection={closestCenter}
+          onDragStart={() => {}}
+          onDragEnd={onDragEnd}
+        >
           <SortableContext items={items} strategy={verticalListSortingStrategy}>
             {filteredItems?.map((item) => (
               <SortableItem key={item.tag} item={item} />

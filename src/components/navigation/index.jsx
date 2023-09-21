@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./style.css";
 
-const Navigation = () => {
+const Navigation = ({ userEmail, logOut }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
@@ -33,7 +33,10 @@ const Navigation = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </form>
-        {/* <button className="navigation__right-sign-in">Sign in</button> */}
+        <button className="navigation__right-sign-in" onClick={logOut}>
+          Sign out
+        </button>
+        <p className="naviation__userEmail">{userEmail}</p>
       </div>
     </div>
   );

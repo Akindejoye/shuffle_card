@@ -26,6 +26,7 @@ figure {
   cursor: pointer;
   transition: transform 0.3s ease;
   margin-bottom: 15px;
+  position: relative;
 }
 
 figure:hover {
@@ -50,4 +51,12 @@ figcaption {
   margin-bottom: 10px;
   background-color: #000;
   width: min-content;
+}
+
+[data-dnd-drag-preview] {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+[data-dnd-dragging] {
+  opacity: 0.5;
 }
