@@ -14,7 +14,8 @@ h1 {
 
 .home__cardbox {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 270px));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 300px));
+  justify-content: center;
   gap: 30px;
   padding-bottom: 70px;
   margin-bottom: 50px;
@@ -59,4 +60,17 @@ figcaption {
 
 [data-dnd-dragging] {
   opacity: 0.5;
+}
+
+.not-found {
+  font-size: 18px;
+  font-weight: 500;
+  color: gold;
+}
+
+
+@media (max-width: 380px) {
+  .home__cardbox {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  }
 }

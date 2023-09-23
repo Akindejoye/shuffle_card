@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { data } from "../../data";
-import { closestCenter, DndContext, DragOverlay } from "@dnd-kit/core";
+import { closestCenter, DndContext, useDraggable } from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
@@ -25,7 +25,7 @@ const SortableItem = ({ item }) => {
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
-    zIndex: isDragging ? 1000 : "auto",
+    zIndex: isDragging ? 10000 : "auto",
   };
 
   return (
@@ -39,20 +39,34 @@ const SortableItem = ({ item }) => {
 // Home Component
 const Home = () => {
   const [items, setItems] = useState(data);
-  const [searchItem, setSearchItem] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const location = useLocation();
 
   // Search items implementation
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const searchQuery = params.get("q");
-    setSearchItem(searchQuery || "");
-  }, [location.search]);
+    const searchQueryFromUrl = params.get("q");
+    setSearchQuery(searchQueryFromUrl || "");
+  }, [location.search, searchQuery]);
 
   const filteredItems = items.filter((item) =>
-    item.tag.toLowerCase().includes(searchItem.toLowerCase())
+    item.tag.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const renderItems = () => {
+    if (filteredItems.length === 0) {
+      return <p className="not-found">Search Item not found</p>;
+    }
+
+    return filteredItems.map((item) => (
+      <SortableItem key={item.tag} item={item} />
+    ));
+  };
+
+  const allItems = items.map((item) => (
+    <SortableItem key={item.tag} item={item} />
+  ));
 
   // onDragEnd handler
   const onDragEnd = (event) => {
@@ -77,9 +91,7 @@ const Home = () => {
           onDragEnd={onDragEnd}
         >
           <SortableContext items={items} strategy={verticalListSortingStrategy}>
-            {filteredItems?.map((item) => (
-              <SortableItem key={item.tag} item={item} />
-            ))}
+            {searchQuery ? renderItems() : allItems}
           </SortableContext>
         </DndContext>
       </div>
