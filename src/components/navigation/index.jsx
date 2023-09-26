@@ -7,12 +7,6 @@ const Navigation = ({ userEmail, logOut }) => {
 
   const navigate = useNavigate();
 
-  // const handleSearch = (event) => {
-  //   event.preventDefault();
-  //   navigate(`/home?q=${searchQuery}`);
-  //   setSearchQuery("");
-  // };
-
   const handleSearchChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
@@ -25,13 +19,6 @@ const Navigation = ({ userEmail, logOut }) => {
       navigate("/home");
     }
   };
-
-  // Handle empty search
-  // useEffect(() => {
-  //   if (!searchQuery) {
-  //     navigate("/home");
-  //   }
-  // }, [searchQuery, navigate]);
 
   return (
     <div className="navigation">

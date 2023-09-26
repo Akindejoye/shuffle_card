@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDH6iRE4RwjF3LQFO46r2GtW3D-Hmfsxzo",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "movix-auth-aaec2.firebaseapp.com",
   projectId: "movix-auth-aaec2",
   storageBucket: "movix-auth-aaec2.appspot.com",
